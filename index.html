@@ -637,6 +637,8 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 
 /* ── Leaflet overrides ───────────────────────────────── */
 .leaflet-container { background: #D8D0C0 !important; }
+.leaflet-container:focus { outline: none !important; }
+path.leaflet-interactive:focus { outline: none !important; }
 .leaflet-control-attribution { font-size: 9px !important; }
 
 /* ── CTA Button ─────────────────────────────────────── */
@@ -966,7 +968,7 @@ async function loadAll() {
         const yrProps = allFeatures[currentYear]?.find(f => f.properties.admin2 === currentProvince);
         showProvinceDetail(yrProps ? yrProps.properties : match.feature.properties);
         selectedLayer = match;
-        match.setStyle({ weight: 3, color: "#1A1410", fillOpacity: 1.0 });
+        match.setStyle({ weight: 3, color: "#1A1410" });
       }
     }
 
@@ -1102,11 +1104,10 @@ function renderChoropleth(year) {
             style.fillColor = TIER_COLORS.low;
             style.fillOpacity = 0.3;
         }
-        // Preserve selection highlight
+        // Preserve selection highlight: Black border, original opacity
         if (currentProvince && f.properties.admin2 === currentProvince) {
-            style.weight = 1.5;
+            style.weight = 3;
             style.color = "#1A1410";
-            style.fillOpacity = 0.15;
         }
         return style;
     },
@@ -1124,7 +1125,7 @@ function renderChoropleth(year) {
         opacity: 0.9
       });
 
-      // For historical years, calculate events dynamically from granular data
+      // ... displayProps logic ...
       let displayProps = { ...f.properties };
       if (isHistorical) {
           displayProps.priority = "low";
@@ -1147,7 +1148,7 @@ function renderChoropleth(year) {
       }
 
       layer.on({
-        mouseover: e => { if (layer !== selectedLayer) e.target.setStyle({ weight: 2, fillOpacity: 0.95 }); },
+        mouseover: e => { if (layer !== selectedLayer) e.target.setStyle({ weight: 2 }); },
         mouseout: e => { if (layer !== selectedLayer) choropleth.resetStyle(e.target); },
         click: e => {
           if (e.originalEvent) L.DomEvent.stopPropagation(e);
@@ -1168,7 +1169,7 @@ function renderChoropleth(year) {
             choropleth.resetStyle(oldLayer);
           }
           
-          e.target.setStyle({ weight: 3, color: "#1A1410", fillOpacity: 1.0 });
+          e.target.setStyle({ weight: 3, color: "#1A1410" });
           
           map.fitBounds(e.target.getBounds(), { padding: [20, 20], maxZoom: 10 });
           
@@ -1218,7 +1219,7 @@ document.getElementById("yearSlider").addEventListener("input", e => {
     const match = layers.find(l => l.feature.properties.admin2 === currentProvince);
     if (match) {
       selectedLayer = match;
-      match.setStyle({ weight: 3, color: "#1A1410", fillOpacity: 1.0 });
+      match.setStyle({ weight: 3, color: "#1A1410" });
       showProvinceDetail(match.feature.properties);
     } else {
       resetSelection();
@@ -1227,6 +1228,20 @@ document.getElementById("yearSlider").addEventListener("input", e => {
     resetDetailPanel();
   }
 });
+
+// GLOBAL RESET: Clicking outside map/sidebar resets view
+document.addEventListener('click', e => {
+    const isMap = e.target.closest('#map');
+    const isSidebar = e.target.closest('.sidebar');
+    const isHeader = e.target.closest('.header');
+    
+    // If we click outside these core interactive zones, reset.
+    // Note: If clicking the map background, map.on('click') handles it.
+    // This catches clicks on the document body/background.
+    if (!isMap && !isSidebar && !isHeader) {
+        resetSelection();
+    }
+}, true);
 
 function populateStats(insights) {
   if (!insights) return;

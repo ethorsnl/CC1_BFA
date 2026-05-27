@@ -32,10 +32,6 @@ def export_conflicts_geojson():
     out_path = out_dir / "conflicts.geojson"
     mapping_path = out_dir / "admin_mapping.json"
 
-    if not acled_path.exists():
-        print(f"✗ ACLED file not found: {acled_path}")
-        return
-
     # 1. Load Admin Mapping
     mapping = {}
     if mapping_path.exists():
@@ -88,7 +84,12 @@ def export_conflicts_geojson():
             print(f"  ⚠ Error processing UCDP file: {e}")
 
     # 2b. Process ACLED (Fallback Source)
-    df_a = pd.read_csv(acled_path)
+    if not acled_path.exists():
+        print(f"⚠ ACLED file not found: {acled_path}. Proceeding with UCDP only.")
+        df_a = pd.DataFrame(columns=["Year", "Month", "Admin2", "Events", "Fatalities", "Longitude", "Latitude"])
+    else:
+        df_a = pd.read_csv(acled_path)
+
     acled_fallback_count = 0
     ucdp_count = 0
 
@@ -106,35 +107,36 @@ def export_conflicts_geojson():
             ucdp_count += len(ucdp_data_by_year_prov[yr][prov])
 
     # 2. Add ACLED only if no UCDP exists for that (Year, Province)
-    for yr, group in df_a.groupby("Year"):
-        yr = int(yr)
-        for _, row in group.iterrows():
-            if row['Events'] <= 0: continue
-            
-            acled_name = str(row['Admin2']).strip().title()
-            mapped_name = mapping.get(acled_name, acled_name)
+    if not df_a.empty:
+        for yr, group in df_a.groupby("Year"):
+            yr = int(yr)
+            for _, row in group.iterrows():
+                if row['Events'] <= 0: continue
+                
+                acled_name = str(row['Admin2']).strip().title()
+                mapped_name = mapping.get(acled_name, acled_name)
 
-            # Check if UCDP has data for this year and THIS specific province
-            has_ucdp = ucdp_data_by_year_prov.get(yr, {}).get(mapped_name)
-            
-            if not has_ucdp:
-                final_features.append({
-                    "type": "Feature",
-                    "properties": {
-                        "year": yr,
-                        "month": MONTH_MAP.get(str(row['Month']), '00'),
-                        "admin2": mapped_name,
-                        "events": int(row['Events']),
-                        "fatalities": int(row['Fatalities']),
-                        "is_granular": False,
-                        "source": "ACLED"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [float(row['Longitude']), float(row['Latitude'])]
-                    }
-                })
-                acled_fallback_count += 1
+                # Check if UCDP has data for this year and THIS specific province
+                has_ucdp = ucdp_data_by_year_prov.get(yr, {}).get(mapped_name)
+                
+                if not has_ucdp:
+                    final_features.append({
+                        "type": "Feature",
+                        "properties": {
+                            "year": yr,
+                            "month": MONTH_MAP.get(str(row['Month']), '00'),
+                            "admin2": mapped_name,
+                            "events": int(row['Events']),
+                            "fatalities": int(row['Fatalities']),
+                            "is_granular": False,
+                            "source": "ACLED"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [float(row['Longitude']), float(row['Latitude'])]
+                        }
+                    })
+                    acled_fallback_count += 1
 
     print(f"  → Merging complete.")
     print(f"    - UCDP (Granular): {ucdp_count} records")

@@ -366,6 +366,8 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 
 /* ── Leaflet overrides ───────────────────────────────── */
 .leaflet-container { background: #D8D0C0 !important; }
+.leaflet-container:focus { outline: none !important; }
+path.leaflet-interactive:focus { outline: none !important; }
 .leaflet-control-attribution { font-size: 9px !important; }
 
 /* ── CTA Button ─────────────────────────────────────── */
@@ -636,7 +638,6 @@ async function init() {
         if (currentProvince && f.properties.admin2 === currentProvince) {
           style.weight = 3;
           style.color = "#1A1410";
-          style.fillOpacity = 0.8;
         }
         return style;
       },
@@ -669,7 +670,7 @@ async function init() {
               choroplethLayer.resetStyle(oldLayer);
             }
             
-            e.target.setStyle({ weight: 3, color: "#1A1410", fillOpacity: 0.8 });
+            e.target.setStyle({ weight: 3, color: "#1A1410" });
             
             // Zoom to province
             map.fitBounds(e.target.getBounds(), { padding: [20, 20], maxZoom: 10 });
@@ -736,7 +737,7 @@ async function init() {
       const match = layers.find(l => l.feature.properties.admin2 === currentProvince);
       if (match) {
         selectedLayer = match;
-        match.setStyle({ weight: 1.5, color: "#1A1410", fillOpacity: 0.15 });
+        match.setStyle({ weight: 3, color: "#1A1410" });
         
         // Populate sidebar manually for initial load
         const stats = provinceStats[currentYear] || {};
@@ -792,7 +793,7 @@ async function init() {
         const match = layers.find(l => l.feature.properties.admin2 === currentProvince);
         if (match) {
             selectedLayer = match;
-            match.setStyle({ weight: 1.5, color: "#1A1410", fillOpacity: 0.15 });
+            match.setStyle({ weight: 3, color: "#1A1410" });
             // Re-trigger the sidebar update manually to avoid infinite recursion or event issues
             const stats = provinceStats[currentYear] || {};
             const provData = stats[match.feature.properties.admin2] || { count: 0 };
@@ -828,6 +829,18 @@ async function init() {
       updateGlobalStats();
       updateRiskChart(currentProvince || "National");
     });
+
+    // GLOBAL RESET: Clicking outside map/sidebar resets view
+    document.addEventListener('click', e => {
+        const isMap = e.target.closest('#map');
+        const isSidebar = e.target.closest('.sidebar');
+        const isHeader = e.target.closest('.header');
+        
+        if (!isMap && !isSidebar && !isHeader) {
+            resetSelection();
+        }
+    }, true);
+
   } catch (e) {
     console.error("Load failed", e);
   }
