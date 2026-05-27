@@ -166,9 +166,10 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 #yearSlider {
   width: 100%;
   -webkit-appearance: none;
-  height: 3px;
+  appearance: none;
+  height: 4px;
   border-radius: 2px;
-  background: var(--surface2);
+  background: rgba(26,20,16,0.15);
   outline: none;
   cursor: pointer;
   margin-top: 8px;
@@ -176,12 +177,28 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 }
 #yearSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--ink);
   border: 2px solid var(--bg);
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   cursor: pointer;
+}
+#yearSlider::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+#yearSlider::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(26,20,16,0.15);
+  border-radius: 2px;
 }
 
 /* Legend */
@@ -221,6 +238,76 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
   color: var(--ink-muted);
   line-height: 1.6;
   margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+/* ── DJ List UI ── */
+.dj-container {
+  text-align: left;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.dj-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.dj-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.dj-desc {
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.dj-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dj-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface2);
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dj-item:hover {
+  background: var(--border);
+}
+
+.dj-item-name {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.dj-item-score {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #F0C060;
+  background: var(--ink);
+  padding: 2px 6px;
+  border-radius: 2px;
 }
 
 .detail-name {
@@ -287,22 +374,22 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
   flex-direction: column;
   justify-content: space-between;
 }
-.split-nums {
+.split-rows {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
+}
+.split-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .split-num {
   font-family: var(--serif);
   font-size: 16px;
   font-weight: 700;
   color: var(--accent);
-}
-.split-sources {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 2px;
+  line-height: 1.1;
 }
 .split-source {
   font-family: var(--mono);
@@ -310,7 +397,7 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  width: 40%;
+  margin-top: 2px;
 }
 .metric-label-integrated {
   font-family: var(--mono);
@@ -484,10 +571,11 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 
 /* ── Trend chart panel (inside detail-panel) ─────────── */
 .chart-panel {
-  padding: 14px 0px 16px;
+  padding: 4px 0px 12px; /* Reduced top and bottom padding */
   flex-shrink: 0;
-  height: 160px; /* Fixed height for the container */
+  height: 150px; /* Slightly reduced height */
   position: relative;
+  margin-top: -4px; /* Move it up slightly */
 }
 
 .chart-title {
@@ -496,13 +584,14 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 #trendChart {
   width: 100% !important;
-  height: 120px !important;
+  height: 110px !important; /* Slightly reduced height */
 }
+
 
 /* ── Loading overlay ─────────────────────────────────── */
 #loadingOverlay {
@@ -852,7 +941,7 @@ async function loadAll() {
 
     // GENERIC FRAMING: Fit map to the loaded data (either choropleth or national center)
     if (choropleth && choropleth.getLayers().length > 0) {
-        map.fitBounds(choropleth.getBounds(), { padding: [30, 30] });
+        map.fitBounds(choropleth.getBounds(), { padding: [20, 20] });
     }
 
     updateNavLinks();
@@ -904,7 +993,7 @@ function resetSelection() {
   
   // Restore national view generically
   if (choropleth && choropleth.getLayers().length > 0) {
-      map.fitBounds(choropleth.getBounds(), { padding: [30, 30] });
+      map.fitBounds(choropleth.getBounds(), { padding: [20, 20] });
   }
 
   const newUrl = new URL(window.location);
@@ -1183,6 +1272,33 @@ function updateHeaderStats(year, features) {
 }
 
 function resetDetailPanel() {
+  const features = allFeatures[currentYear] || [];
+  const djProvinces = features
+    .filter(f => f.properties.risk_type === "Double Jeopardy")
+    .sort((a, b) => (b.properties.score || 0) - (a.properties.score || 0))
+    .slice(0, 5);
+
+  let djHtml = "";
+  if (djProvinces.length > 0) {
+    djHtml = `
+      <div class="dj-container">
+        <div class="dj-header">
+          <div class="dj-title">Double Jeopardy Zones</div>
+          <span class="risk-badge" style="margin-left:0">Top 5</span>
+        </div>
+        <p class="dj-desc">Areas where systemic infrastructure gaps are compounded by acute security threats.</p>
+        <div class="dj-list">
+          ${djProvinces.map(p => `
+            <div class="dj-item" onclick="selectProvinceByName('${p.properties.admin2}')">
+              <span class="dj-item-name">${p.properties.admin2}</span>
+              <span class="dj-item-score">${(p.properties.score * 100).toFixed(0)}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
   document.getElementById("detailPanel").innerHTML = `
     <div class="panel-label">Province detail</div>
     <p class="detail-empty">Select a province on the map to see its vulnerability score and school infrastructure.</p>
@@ -1190,9 +1306,20 @@ function resetDetailPanel() {
       <div class="chart-title" id="chartTitle">National conflict events · 2015–2026</div>
       <canvas id="trendChart"></canvas>
     </div>
+    ${djHtml}
   `;
+
   if (trendsData && trendsData.length) {
     drawTrend(trendsData, `National conflict events · ${CONFIG.name} · 2015–2026`);
+  }
+}
+
+function selectProvinceByName(name) {
+  const layers = choropleth.getLayers();
+  const match = layers.find(l => l.feature.properties.admin2 === name);
+  if (match) {
+    // Trigger the click event on the layer
+    match.fire('click');
   }
 }
 
@@ -1224,13 +1351,15 @@ function showProvinceDetail(props) {
 
     <div class="detail-metrics">
       <div class="metric-split">
-        <div class="split-nums">
-          <div class="split-num">${events.toLocaleString()}</div>
-          <div class="split-num" style="color:#B8860B">${Math.round(events * 0.7).toLocaleString()}</div>
-        </div>
-        <div class="split-sources">
-          <div class="split-source">ACLED</div>
-          <div class="split-source">UCDP</div>
+        <div class="split-rows">
+          <div class="split-col">
+            <div class="split-num">${events.toLocaleString()}</div>
+            <div class="split-source">ACLED</div>
+          </div>
+          <div class="split-col">
+            <div class="split-num" style="color:#B8860B">${Math.round(events * 0.7).toLocaleString()}</div>
+            <div class="split-source">UCDP</div>
+          </div>
         </div>
         <div class="metric-label-integrated">Total Events</div>
       </div>

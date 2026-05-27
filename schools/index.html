@@ -165,21 +165,38 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 #yearSlider {
   width: 100%;
   -webkit-appearance: none;
-  height: 3px;
+  appearance: none;
+  height: 4px;
   border-radius: 2px;
-  background: var(--surface2);
+  background: rgba(26,20,16,0.15);
   outline: none;
   cursor: pointer;
   margin-top: 8px;
 }
 #yearSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--ink);
   border: 2px solid var(--bg);
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   cursor: pointer;
+}
+#yearSlider::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+#yearSlider::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(26,20,16,0.15);
+  border-radius: 2px;
 }
 
 /* Legend */
@@ -699,7 +716,7 @@ async function init() {
 
     // GENERIC FRAMING: Fit map to the loaded data
     if (choroplethLayer && choroplethLayer.getLayers().length > 0) {
-        map.fitBounds(choroplethLayer.getBounds(), { padding: [30, 30] });
+        map.fitBounds(choroplethLayer.getBounds(), { padding: [20, 20] });
     }
 
     document.getElementById("toggleSchools").checked = false;
@@ -852,7 +869,7 @@ function resetSelection() {
   
   // Restore national view generically
   if (choroplethLayer && choroplethLayer.getLayers().length > 0) {
-      map.fitBounds(choroplethLayer.getBounds(), { padding: [30, 30] });
+      map.fitBounds(choroplethLayer.getBounds(), { padding: [20, 20] });
   } else {
       map.setView([12.3, -1.9], 7);
   }
