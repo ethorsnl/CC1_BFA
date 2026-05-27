@@ -1,0 +1,2916 @@
+{
+  "National": {
+    "2015": {
+      "stable": 5783,
+      "high": 2,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 5785,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 5785,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 5699,
+      "high": 86,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 5563,
+      "high": 144,
+      "critical": 78
+    },
+    "2020": {
+      "stable": 5576,
+      "high": 209,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 5343,
+      "high": 441,
+      "critical": 1
+    },
+    "2022": {
+      "stable": 4250,
+      "high": 1353,
+      "critical": 182
+    },
+    "2023": {
+      "stable": 3352,
+      "high": 2288,
+      "critical": 145
+    },
+    "2024": {
+      "stable": 4112,
+      "high": 1619,
+      "critical": 54
+    },
+    "2025": {
+      "stable": 4826,
+      "high": 959,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 5579,
+      "high": 206,
+      "critical": 0
+    }
+  },
+  "Kadiogo": {
+    "2015": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 1267,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Houet": {
+    "2015": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 272,
+      "high": 1,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 3,
+      "high": 270,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 273,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Oubritenga": {
+    "2015": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Boulkiemde": {
+    "2015": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 498,
+      "high": 36,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 498,
+      "high": 36,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 498,
+      "high": 36,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 534,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Passore": {
+    "2015": {
+      "stable": 31,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 31,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 31,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 31,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 30,
+      "high": 1,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 30,
+      "high": 1,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 30,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 12,
+      "high": 19,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 9,
+      "high": 22,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 12,
+      "high": 19,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 30,
+      "high": 1,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 30,
+      "high": 1,
+      "critical": 0
+    }
+  },
+  "Mouhoun": {
+    "2015": {
+      "stable": 127,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 127,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 127,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 127,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 127,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 127,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 126,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 126,
+      "high": 1,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 1,
+      "high": 126,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 126,
+      "high": 1,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 126,
+      "high": 1,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 126,
+      "high": 1,
+      "critical": 0
+    }
+  },
+  "Oudalan": {
+    "2015": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 0,
+      "high": 56,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 56,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 0,
+      "critical": 56
+    },
+    "2023": {
+      "stable": 0,
+      "high": 56,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 56,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Poni": {
+    "2015": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 1,
+      "high": 28,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 1,
+      "high": 28,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 29,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 1,
+      "high": 28,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 1,
+      "high": 28,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 29,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Sissili": {
+    "2015": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 2,
+      "high": 42,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 44,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Comoe": {
+    "2015": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 92,
+      "high": 41,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 92,
+      "high": 41,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 91,
+      "high": 42,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 92,
+      "high": 41,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 132,
+      "high": 1,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 133,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Seno": {
+    "2015": {
+      "stable": 10,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 10,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 10,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 10,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 0,
+      "high": 10,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 0,
+      "high": 10,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 10,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 0,
+      "critical": 10
+    },
+    "2023": {
+      "stable": 0,
+      "high": 0,
+      "critical": 10
+    },
+    "2024": {
+      "stable": 0,
+      "high": 0,
+      "critical": 10
+    },
+    "2025": {
+      "stable": 0,
+      "high": 10,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 0,
+      "high": 10,
+      "critical": 0
+    }
+  },
+  "Yatenga": {
+    "2015": {
+      "stable": 494,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 494,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 494,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 494,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 493,
+      "high": 1,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 493,
+      "high": 1,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 493,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 104,
+      "high": 390,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 34,
+      "high": 460,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 104,
+      "high": 390,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 108,
+      "high": 386,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 493,
+      "high": 1,
+      "critical": 0
+    }
+  },
+  "Sourou": {
+    "2015": {
+      "stable": 15,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 15,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 15,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 15,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 15,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 4,
+      "high": 11,
+      "critical": 0
+    }
+  },
+  "Kourittenga": {
+    "2015": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 99,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Nayala": {
+    "2015": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 1,
+      "high": 44,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 45,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Ganzourgou": {
+    "2015": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 101,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Kossi": {
+    "2015": {
+      "stable": 154,
+      "high": 1,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 155,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 155,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 155,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 154,
+      "high": 1,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 154,
+      "high": 1,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 154,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 154,
+      "high": 1,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 155,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 155,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 0,
+      "high": 155,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 154,
+      "high": 1,
+      "critical": 0
+    }
+  },
+  "Bougouriba": {
+    "2015": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 1,
+      "high": 15,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 16,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 16,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Namentenga": {
+    "2015": {
+      "stable": 95,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 95,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 95,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 95,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 76,
+      "high": 19,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 87,
+      "high": 8,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 73,
+      "high": 22,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 9,
+      "high": 78,
+      "critical": 8
+    },
+    "2023": {
+      "stable": 9,
+      "high": 78,
+      "critical": 8
+    },
+    "2024": {
+      "stable": 9,
+      "high": 78,
+      "critical": 8
+    },
+    "2025": {
+      "stable": 9,
+      "high": 86,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 84,
+      "high": 11,
+      "critical": 0
+    }
+  },
+  "Zondoma": {
+    "2015": {
+      "stable": 46,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 46,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 46,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 46,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 43,
+      "high": 3,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 43,
+      "high": 3,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 43,
+      "high": 3,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 41,
+      "high": 5,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 46,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 41,
+      "high": 5,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 41,
+      "high": 5,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 43,
+      "high": 3,
+      "critical": 0
+    }
+  },
+  "Gourma": {
+    "2015": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 29,
+      "high": 13,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 29,
+      "high": 13,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 25,
+      "high": 17,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 25,
+      "high": 4,
+      "critical": 13
+    },
+    "2023": {
+      "stable": 25,
+      "high": 4,
+      "critical": 13
+    },
+    "2024": {
+      "stable": 25,
+      "high": 17,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 25,
+      "high": 17,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 29,
+      "high": 13,
+      "critical": 0
+    }
+  },
+  "Sanguie": {
+    "2015": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 85,
+      "high": 24,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 83,
+      "high": 26,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 85,
+      "high": 24,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 109,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Bazega": {
+    "2015": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 356,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Boulgou": {
+    "2015": {
+      "stable": 132,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 132,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 132,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 132,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 132,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 132,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 126,
+      "high": 6,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 24,
+      "high": 108,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 24,
+      "high": 102,
+      "critical": 6
+    },
+    "2024": {
+      "stable": 24,
+      "high": 102,
+      "critical": 6
+    },
+    "2025": {
+      "stable": 126,
+      "high": 6,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 126,
+      "high": 6,
+      "critical": 0
+    }
+  },
+  "Gnagna": {
+    "2015": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 42,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 41,
+      "high": 1,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 41,
+      "high": 1,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 15,
+      "high": 26,
+      "critical": 1
+    },
+    "2022": {
+      "stable": 6,
+      "high": 36,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 6,
+      "high": 36,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 6,
+      "high": 36,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 6,
+      "high": 36,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 21,
+      "high": 21,
+      "critical": 0
+    }
+  },
+  "Nahouri": {
+    "2015": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Kenedougou": {
+    "2015": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 71,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 9,
+      "high": 62,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 70,
+      "high": 1,
+      "critical": 0
+    }
+  },
+  "Sanmatenga": {
+    "2015": {
+      "stable": 200,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 200,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 200,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 191,
+      "high": 9,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 121,
+      "high": 70,
+      "critical": 9
+    },
+    "2020": {
+      "stable": 185,
+      "high": 15,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 121,
+      "high": 79,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 112,
+      "high": 73,
+      "critical": 15
+    },
+    "2023": {
+      "stable": 112,
+      "high": 73,
+      "critical": 15
+    },
+    "2024": {
+      "stable": 112,
+      "high": 82,
+      "critical": 6
+    },
+    "2025": {
+      "stable": 120,
+      "high": 80,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 185,
+      "high": 15,
+      "critical": 0
+    }
+  },
+  "Bale": {
+    "2015": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 39,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 39,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Bam": {
+    "2015": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 85,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 85,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 85,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 85,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Soum": {
+    "2015": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 10,
+      "high": 46,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 10,
+      "high": 0,
+      "critical": 46
+    },
+    "2020": {
+      "stable": 10,
+      "high": 46,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 10,
+      "high": 46,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 7,
+      "high": 3,
+      "critical": 46
+    },
+    "2023": {
+      "stable": 7,
+      "high": 3,
+      "critical": 46
+    },
+    "2024": {
+      "stable": 7,
+      "high": 49,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 10,
+      "high": 46,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 10,
+      "high": 46,
+      "critical": 0
+    }
+  },
+  "Loroum": {
+    "2015": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 195,
+      "high": 10,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 195,
+      "high": 10,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 195,
+      "high": 10,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 201,
+      "high": 4,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 205,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Karo-Peli": {
+    "2015": {
+      "stable": 34,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 34,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 34,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 11,
+      "high": 23,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 6,
+      "high": 5,
+      "critical": 23
+    },
+    "2020": {
+      "stable": 0,
+      "high": 34,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 34,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 0,
+      "critical": 34
+    },
+    "2023": {
+      "stable": 0,
+      "high": 6,
+      "critical": 28
+    },
+    "2024": {
+      "stable": 0,
+      "high": 29,
+      "critical": 5
+    },
+    "2025": {
+      "stable": 6,
+      "high": 28,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 6,
+      "high": 28,
+      "critical": 0
+    }
+  },
+  "Tapoa": {
+    "2015": {
+      "stable": 255,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 255,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 255,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 253,
+      "high": 2,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 253,
+      "high": 2,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 253,
+      "high": 2,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 253,
+      "high": 2,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 255,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 255,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 255,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 253,
+      "high": 2,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 253,
+      "high": 2,
+      "critical": 0
+    }
+  },
+  "Kompienga": {
+    "2015": {
+      "stable": 6,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 6,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 6,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 0,
+      "high": 6,
+      "critical": 0
+    }
+  },
+  "Koulpelogo": {
+    "2015": {
+      "stable": 19,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 19,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 19,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 19,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 19,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 19,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 19,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 19,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 0,
+      "critical": 19
+    },
+    "2024": {
+      "stable": 0,
+      "high": 0,
+      "critical": 19
+    },
+    "2025": {
+      "stable": 0,
+      "high": 19,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 0,
+      "high": 19,
+      "critical": 0
+    }
+  },
+  "Tuy": {
+    "2015": {
+      "stable": 9,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 9,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 9,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 9,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 9,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 9,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 9,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 9,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 9,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 9,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 0,
+      "high": 9,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 0,
+      "high": 9,
+      "critical": 0
+    }
+  },
+  "Ziro": {
+    "2015": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 81,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Kourweogo": {
+    "2015": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 160,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Zoundweogo": {
+    "2015": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 22,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 22,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 22,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 22,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Ioba": {
+    "2015": {
+      "stable": 28,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 28,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 28,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 28,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 28,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 28,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 27,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 27,
+      "high": 1,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 28,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 27,
+      "high": 1,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 27,
+      "high": 1,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 27,
+      "high": 1,
+      "critical": 0
+    }
+  },
+  "Dyamongou": {
+    "2015": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 51,
+      "high": 1,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 52,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 52,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 52,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 51,
+      "high": 1,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 52,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Leraba": {
+    "2015": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 56,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Komandjari": {
+    "2015": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 14,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 14,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 14,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 14,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 0,
+      "high": 14,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Noumbiel": {
+    "2015": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 14,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 14,
+      "high": 0,
+      "critical": 0
+    }
+  },
+  "Yagha": {
+    "2015": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    },
+    "2016": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    },
+    "2017": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    },
+    "2018": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    },
+    "2019": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    },
+    "2020": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    },
+    "2021": {
+      "stable": 0,
+      "high": 5,
+      "critical": 0
+    },
+    "2022": {
+      "stable": 0,
+      "high": 5,
+      "critical": 0
+    },
+    "2023": {
+      "stable": 0,
+      "high": 5,
+      "critical": 0
+    },
+    "2024": {
+      "stable": 0,
+      "high": 5,
+      "critical": 0
+    },
+    "2025": {
+      "stable": 0,
+      "high": 5,
+      "critical": 0
+    },
+    "2026": {
+      "stable": 5,
+      "high": 0,
+      "critical": 0
+    }
+  }
+}

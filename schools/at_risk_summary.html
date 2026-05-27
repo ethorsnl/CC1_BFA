@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>At-Risk Schools Summary: Nigeria</title>
+<style>
+  body { font-family: 'IBM Plex Sans', sans-serif; padding: 40px; background: #F5F0E8; color: #1A1410; }
+  h1 { font-family: 'Libre Baskerville', serif; color: #8B1A1A; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+  th, td { border: 1px solid #CCC; padding: 8px; text-align: left; }
+  th { background: #E3DDD0; }
+  .methodology { margin-top: 40px; padding: 20px; background: #EDE8DC; border-radius: 8px; font-size: 14px; line-height: 1.6; }
+  @media print { .no-print { display: none; } }
+</style>
+<style>
+  /* Spinner animation */
+  .spinner { border: 4px solid #E3DDD0; border-top: 4px solid #8B1A1A; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<button class="no-print" onclick="window.print()">Print Report</button>
+<h1 id="title">At-Risk Schools Summary: <span id="yearVal"></span></h1>
+<div id="loading" style="text-align:center; padding: 20px;">
+  <div class="spinner"></div>
+  <p>Loading school data...</p>
+  <button class="no-print" onclick="window.location.reload()">Refresh / Retry</button>
+</div>
+<table id="schoolTable" style="display:none;">
+  <thead><tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+<div class="methodology">
+  <h3>Methodology & Metric Definitions</h3>
+  <p>Risk is calculated as a composite index of conflict pressure and systemic fragility. Only schools with a <strong>Final Score > 0.7</strong> are displayed in this report.</p>
+  <ul>
+    <li><strong>Conflict Score:</strong> Measures historical and recent conflict events within a 10km radius of the school (0–1 scale).</li>
+    <li><strong>Fragility Uplift:</strong> Adjusts the risk based on regional education baseline indicators, such as out-of-school rates and survival rates (0–1 scale).</li>
+    <li><strong>Final Score:</strong> The combined composite vulnerability index used to categorize schools.</li>
+  </ul>
+</div>
+<script>
+async function load() {
+  const params = new URLSearchParams(window.location.search);
+  const year = params.get('year') || '2024';
+  const province = params.get('province');
+  const iso3 = (params.get('iso3') || 'BFA').toUpperCase();
+  
+  document.getElementById('yearVal').textContent = year + (province ? ` (${province})` : '');
+  
+  const ARTIFACTS_PATH = `../artifacts/${iso3}`;
+  
+  const [provStats, vulnerabilityRaw] = await Promise.all([
+    fetch(`${ARTIFACTS_PATH}/province_at_risk_stats.json`).then(r => r.json()),
+    fetch(`${ARTIFACTS_PATH}/schools/${iso3}_school_vulnerability.csv`).then(r => r.text())
+  ]);
+
+  function parseCSVLine(text) {
+      const result = [];
+      let cur = '';
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+          const char = text[i];
+          if (char === '"') inQuotes = !inQuotes;
+          else if (char === ',' && !inQuotes) {
+              result.push(cur.trim());
+              cur = '';
+          } else cur += char;
+      }
+      result.push(cur.trim());
+      return result;
+  }
+
+  // Header: name(0), amenity(1), lat(2), lon(3), conflict_score(4), fragility_uplift(5), final_score(6)
+  const rows = vulnerabilityRaw.split('\n').slice(1);
+  const vulnMap = {};
+  const nameMap = {}; // Fallback name|province match
+  
+  rows.forEach(row => {
+    const cols = parseCSVLine(row);
+    if (cols.length >= 7) {
+        const name = (cols[0] || '').toLowerCase().trim();
+        const lat = parseFloat(cols[2]).toFixed(3);
+        const lon = parseFloat(cols[3]).toFixed(3);
+        
+        // We'll extract province from score data later, but for nameMap we need a better key
+        // Note: the CSV doesn't have province column, but let's just use name for now
+        const data = {
+            conflict: parseFloat(cols[4]) || 0,
+            fragility: parseFloat(cols[5]) || 0,
+            final: parseFloat(cols[6]) || 0
+        };
+        
+        vulnMap[`${lat},${lon}`] = data;
+        if (name) nameMap[name] = data;
+    }
+  });
+
+  const tbody = document.querySelector("#schoolTable tbody");
+  
+  // 1. Get the authoritative list of at-risk schools for this year/province
+  let atRiskSchools = [];
+  const yearData = provStats[year] || {};
+
+  if (province) {
+      atRiskSchools = (yearData[province] || {}).schools || [];
+  } else {
+      // If no province selected, show all schools for that year
+      for (const p in yearData) {
+          atRiskSchools = atRiskSchools.concat(yearData[p].schools || []);
+      }
+  }
+  
+  // Sort: Alphabetical by Name
+  atRiskSchools.sort((a, b) => {
+      const nameA = (a.name || 'Unnamed').toLowerCase();
+      const nameB = (b.name || 'Unnamed').toLowerCase();
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+  });
+  
+  if (atRiskSchools.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No high-risk schools found for ${year} in this selection.</td></tr>`;
+  } else {
+      atRiskSchools.forEach((s, index) => {
+        const row = `<tr>
+            <td>${index + 1}</td>
+            <td style="font-weight:500;">${s.name || 'Unnamed'}</td>
+            <td style="font-family:monospace; color:var(--ink-muted);">${s.lat.toFixed(4)}</td>
+            <td style="font-family:monospace; color:var(--ink-muted);">${s.lon.toFixed(4)}</td>
+        </tr>`;
+
+        tbody.innerHTML += row;
+      });
+  }
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('schoolTable').style.display = 'table';
+}
+load();
+</script>
+</body>
+</html>
+e.display = 'none';
+  document.getElementById('schoolTable').style.display = 'table';
+}
+load();
+</script>
+</body>
+</html>

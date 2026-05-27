@@ -1,0 +1,12 @@
+{
+  "years": [
+    2020
+  ],
+  "country": "BFA",
+  "files": {
+    "2020": "bfa_pop_2020.json"
+  },
+  "zonal_files": {},
+  "description": "Population data (heatmap JSON + zonal CSV)",
+  "source": "WorldPop Global per country 2000-2020 (CC-BY 4.0)"
+}

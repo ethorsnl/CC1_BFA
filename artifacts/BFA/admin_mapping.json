@@ -1,0 +1,17 @@
+{
+  "iso3": "BFA",
+  "acled_to_official": {
+    "Kossi": "Kossin",
+    "Oubritenga": "Bassitenga",
+    "Sanmatenga": "Sandbondtenga",
+    "Soum": "Djelgodji",
+    "Tapoa": "Gobnangou"
+  },
+  "official_to_acled": {
+    "Kossin": "Kossi",
+    "Bassitenga": "Oubritenga",
+    "Sandbondtenga": "Sanmatenga",
+    "Djelgodji": "Soum",
+    "Gobnangou": "Tapoa"
+  }
+}
