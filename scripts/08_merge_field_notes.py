@@ -20,15 +20,26 @@ def merge_notes():
     with open(geojson_path, 'r') as f:
         data = json.load(f)
         
-    # Load Notes
+    # Load Notes and handle nulls
     notes_df = pd.read_csv(notes_path)
+    # Drop rows without coordinates as they can't be mapped/matched
+    notes_df = notes_df.dropna(subset=['latitude', 'longitude'])
+    # Fill other missing values with defaults
+    notes_df['status'] = notes_df['status'].fillna("Unknown")
+    notes_df['note'] = notes_df['note'].fillna("No description provided.")
+    notes_df['observer'] = notes_df['observer'].fillna("Anonymous")
+    notes_df['observation_date'] = notes_df['observation_date'].fillna("Date unknown")
+    notes_df['school_name'] = notes_df['school_name'].fillna("Unnamed School")
     
     # Create coordinate-based lookup
     # Key: (round(lat, 4), round(lon, 4))
     coord_lookup = {}
     for _, row in notes_df.iterrows():
-        key = (round(float(row['latitude']), 4), round(float(row['longitude']), 4))
-        coord_lookup[key] = row.to_dict()
+        try:
+            key = (round(float(row['latitude']), 4), round(float(row['longitude']), 4))
+            coord_lookup[key] = row.to_dict()
+        except (ValueError, TypeError):
+            continue
     
     # Create name-based lookup as fallback
     name_lookup = notes_df.set_index('school_name').to_dict('index')
