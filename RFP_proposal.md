@@ -47,3 +47,5 @@ To ensure the data is actionable at the ground level, the platform includes two 
 
 ---
 **Human-Led Reasoning & AI Disclosure:** The 50-25-25 weighting model and the concept of "Double Jeopardy" zones were determined through human-led reasoning to ensure security data does not overshadow long-term infrastructure needs. AI was utilized for data orchestration and to assist in the drafting of technical summaries. All findings have been verified by the author.
+
+[**My GitHub Repo**](https://github.com/SunilRaman42/Education_continuity)
