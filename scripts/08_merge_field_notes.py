@@ -25,7 +25,7 @@ def merge_notes():
     # Drop rows without coordinates as they can't be mapped/matched
     notes_df = notes_df.dropna(subset=['latitude', 'longitude'])
     # Fill other missing values with defaults
-    notes_df['status'] = notes_df['status'].fillna("Unknown")
+    notes_df['status'] = notes_df['status'].fillna("Unknown").str.strip().str.title()
     notes_df['note'] = notes_df['note'].fillna("No description provided.")
     notes_df['observer'] = notes_df['observer'].fillna("Anonymous")
     notes_df['observation_date'] = notes_df['observation_date'].fillna("Date unknown")

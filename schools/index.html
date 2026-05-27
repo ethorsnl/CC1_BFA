@@ -1124,8 +1124,14 @@ function showSchoolDetail(props, latlng) {
   const years = score ? (score.at_risk_years || []) : [];
   const risk_summary = isDiscovery ? "New discovery, risk analysis pending" : (years.length > 0 ? `at risk ${years.length} times since ${years[0]}` : "not currently at risk");
   
+  const status = props.field_status || "Unknown";
+  const statusColor = status === "Open" ? "#2e7d32" : (status === "Closed" ? "#d32f2f" : "#f57c00");
+
   document.getElementById("detailPanel").innerHTML = `
-    <div class="panel-label">School detail ${isDiscovery ? '<span style="color:#00bcd4; margin-left:5px;">● NEW</span>' : ''}</div>
+    <div class="panel-label" style="display:flex; justify-content:space-between; align-items:center;">
+       <span>School detail ${isDiscovery ? '<span style="color:#00bcd4; margin-left:5px;">● NEW</span>' : ''}</span>
+       <span style="font-size:9px; background:${statusColor}; color:white; padding:2px 6px; border-radius:4px;">${status.toUpperCase()}</span>
+    </div>
     <div class="detail-name">${name}</div>
     <div class="panel-label" style="margin-top:4px;">${province}</div>
     <div class="detail-metrics">
@@ -1158,25 +1164,25 @@ function showSchoolDetail(props, latlng) {
         <div class="metric-label">Fragility</div>
       </div>
     </div>
-    `;
-    }
+  `;
+}
 
-    function updateDiscoveryFeed(geo) {
-    const discoveries = geo.features.filter(f => f.properties.is_discovery === true);
-    const panel = document.getElementById("discoveryPanel");
-    const feed  = document.getElementById("discoveryFeed");
-    const count = document.getElementById("discoveryCount");
+function updateDiscoveryFeed(geo) {
+  const discoveries = geo.features.filter(f => f.properties.is_discovery === true);
+  const panel = document.getElementById("discoveryPanel");
+  const feed  = document.getElementById("discoveryFeed");
+  const count = document.getElementById("discoveryCount");
 
-    if (discoveries.length === 0) {
+  if (discoveries.length === 0) {
     panel.style.display = "none";
     return;
-    }
+  }
 
-    panel.style.display = "block";
-    count.textContent = discoveries.length;
-    feed.innerHTML = "";
+  panel.style.display = "block";
+  count.textContent = discoveries.length;
+  feed.innerHTML = "";
 
-    discoveries.forEach(f => {
+  discoveries.forEach(f => {
     const p = f.properties;
     const coords = f.geometry.coordinates;
     const item = document.createElement("div");
@@ -1205,14 +1211,9 @@ function showSchoolDetail(props, latlng) {
       showSchoolDetail(p, { lat: coords[1], lng: coords[0] });
     };
     feed.appendChild(item);
-    });
-    }
-
-      <div class="ai-label">Risk Profile</div>
-      <div class="ai-text">This facility is in <strong>${province}</strong>. Memory risk: <strong>${v_score}%</strong>. Fresh conflict pressure: <strong>${(detailed.conflict * 100).toFixed(0)}%</strong>.</div>
-    </div>
-  `;
+  });
 }
+
 init();
 </script>
 </body>
