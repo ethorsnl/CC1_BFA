@@ -29,6 +29,7 @@
 <table id="schoolTable" style="display:none;">
   <thead><tr>
     <th>#</th>
+    <th>Province</th>
     <th>Name</th>
     <th>Latitude</th>
     <th>Longitude</th>
@@ -37,7 +38,7 @@
 </table>
 <div class="methodology">
   <h3>Methodology & Metric Definitions</h3>
-  <p>Risk is calculated as a composite index of conflict pressure and systemic fragility. Only schools with a <strong>Final Score > 0.7</strong> are displayed in this report.</p>
+  <p>Risk is calculated as a composite index of conflict pressure and systemic fragility. Only schools with a <strong>Final Score > 0.5</strong> are displayed in this report.</p>
   <ul>
     <li><strong>Conflict Score:</strong> Measures historical and recent conflict events within a 10km radius of the school (0–1 scale).</li>
     <li><strong>Fragility Uplift:</strong> Adjusts the risk based on regional education baseline indicators, such as out-of-school rates and survival rates (0–1 scale).</li>
@@ -126,12 +127,18 @@ async function load() {
   });
   
   if (atRiskSchools.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No high-risk schools found for ${year} in this selection.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No high-risk schools found for ${year} in this selection.</td></tr>`;
   } else {
       atRiskSchools.forEach((s, index) => {
+        let displayName = s.name;
+        if (!displayName || displayName === 'nan' || displayName === 'Unnamed School') {
+            displayName = 'Unknown';
+        }
+
         const row = `<tr>
             <td>${index + 1}</td>
-            <td style="font-weight:500;">${s.name || 'Unnamed'}</td>
+            <td style="color:var(--ink-muted); font-size:12px;">${s.province || 'Unknown'}</td>
+            <td style="font-weight:500;">${displayName}</td>
             <td style="font-family:monospace; color:var(--ink-muted);">${s.lat.toFixed(4)}</td>
             <td style="font-family:monospace; color:var(--ink-muted);">${s.lon.toFixed(4)}</td>
         </tr>`;
@@ -140,13 +147,6 @@ async function load() {
       });
   }
   document.getElementById('loading').style.display = 'none';
-  document.getElementById('schoolTable').style.display = 'table';
-}
-load();
-</script>
-</body>
-</html>
-e.display = 'none';
   document.getElementById('schoolTable').style.display = 'table';
 }
 load();

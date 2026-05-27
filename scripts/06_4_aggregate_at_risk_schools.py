@@ -79,8 +79,8 @@ def aggregate_at_risk_schools():
             v_score = score_lookup.get(year, {}).get(prov, 0)
             y_scores[y_str] = float(v_score)
 
-            # Threshold: High risk (score > 0.6)
-            if v_score > 0.6:
+            # Threshold: High risk (score > 0.5)
+            if v_score > 0.5:
                 at_risk_years.append(year)
                 
                 if y_str not in aggregated:
@@ -89,8 +89,12 @@ def aggregate_at_risk_schools():
                     aggregated[y_str][prov] = {"count": 0, "schools": []}
                 
                 aggregated[y_str][prov]["count"] += 1
+                name = str(s.get("name", "Unknown"))
+                if name.lower() in ["nan", "unnamed school", "none"]:
+                    name = "Unknown"
+
                 aggregated[y_str][prov]["schools"].append({
-                    "name": str(s.get("name", "Unnamed School")),
+                    "name": name,
                     "province": str(prov),
                     "lat": float(s.get("latitude", 0)),
                     "lon": float(s.get("longitude", 0)),
