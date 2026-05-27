@@ -1197,8 +1197,8 @@ function updateDiscoveryFeed(geo) {
     `;
     item.innerHTML = `
       <div style="font-family:IBM Plex Mono; font-size:8px; color:#00bcd4; font-weight:bold; display:flex; justify-content:space-between;">
-        <span>${p.verification_status.toUpperCase()}</span>
-        <span>${p.field_date}</span>
+        <span>${(p.verification_status || "PENDING").toUpperCase()}</span>
+        <span>${p.field_date || "N/A"}</span>
       </div>
       <div style="font-size:11px; font-weight:bold; color:var(--ink); margin:2px 0;">${p.name}</div>
       <div style="font-size:9px; color:var(--ink-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">"${p.field_note}"</div>

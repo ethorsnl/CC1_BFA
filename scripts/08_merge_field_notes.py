@@ -75,6 +75,8 @@ def merge_notes():
             props['field_note'] = note_data['note']
             props['field_date'] = note_data['observation_date']
             props['field_observer'] = note_data['observer']
+            props['verification_status'] = props.get('verification_status', 'verified' if not props.get('is_discovery') else 'pending')
+            
             if not name or name in ["null", "Ecole", "Unnamed Institution"]:
                 props['name'] = note_data['school_name']
             
