@@ -1609,14 +1609,30 @@ function renderSchools(geo) {
   schoolsLayer = L.geoJSON(geo, {
     pointToLayer: (f, latlng) => {
       const size = currentZoom < 8 ? 2 : 4;
-      return L.circleMarker(latlng, {
-        radius: size,
-        fillColor: "#1A1410",
+      const isDiscovery = f.properties.is_discovery === true;
+      const markerColor = isDiscovery ? "#00bcd4" : (f.properties.field_note ? "#2e7d32" : "#1A1410");
+
+      const marker = L.circleMarker(latlng, {
+        radius: isDiscovery ? size * 1.5 : size,
+        fillColor: markerColor,
         color: "#fff",
         weight: 1,
         opacity: 1,
         fillOpacity: 0.8
       });
+
+      if (f.properties.field_note) {
+        const prefix = isDiscovery ? '<span style="color:#00bcd4; font-weight:bold;">NEW DISCOVERY</span><br/>' : '';
+        marker.bindTooltip(`
+          <div style="font-family:IBM Plex Sans; font-size:11px;">
+            ${prefix}
+            <strong>${f.properties.name || 'Unnamed Institution'}</strong><br/>
+            <span style="color:#2e7d32; font-weight:bold;">FIELD REPORT:</span> 
+            <em>"${f.properties.field_note}"</em>
+          </div>
+        `, { sticky: true });
+      }
+      return marker;
     }
   });
   schoolsLayer.addTo(map);

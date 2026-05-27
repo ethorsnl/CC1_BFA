@@ -1,0 +1,221 @@
+# Countries in Non_HRP
+
+- Albania
+- Algeria
+- American Samoa
+- Andorra
+- Angola
+- Anguilla
+- Antarctica
+- Antigua and Barbuda
+- Argentina
+- Armenia
+- Aruba
+- Australia
+- Austria
+- Azerbaijan
+- Bahamas
+- Bahrain
+- Bailiwick of Guernsey
+- Bailiwick of Jersey
+- Bangladesh
+- Barbados
+- Belarus
+- Belgium
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Bosnia and Herzegovina
+- Botswana
+- Brazil
+- British Indian Ocean Territory
+- British Virgin Islands
+- Brunei
+- Bulgaria
+- Cambodia
+- Canada
+- Cape Verde
+- Caribbean Netherlands
+- Cayman Islands
+- Chile
+- China
+- Christmas Island
+- Cocos (Keeling) Islands
+- Comoros
+- Cook Islands
+- Costa Rica
+- Croatia
+- Cuba
+- Curacao
+- Cyprus
+- Czech Republic
+- Denmark
+- Djibouti
+- Dominica
+- Dominican Republic
+- East Timor
+- Ecuador
+- Egypt
+- El Salvador
+- Equatorial Guinea
+- Eritrea
+- Estonia
+- Falkland Islands
+- Faroe Islands
+- Fiji
+- Finland
+- France
+- French Guiana
+- French Polynesia
+- Gabon
+- Gambia
+- Georgia
+- Germany
+- Ghana
+- Gibraltar
+- Greece
+- Greenland
+- Grenada
+- Guadeloupe
+- Guam
+- Guatemala
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Heard Island and McDonald Islands
+- Honduras
+- Hungary
+- Iceland
+- India
+- Indonesia
+- Iran
+- Iraq
+- Ireland
+- Isle of Man
+- Israel
+- Italy
+- Ivory Coast
+- Jamaica
+- Japan
+- Jordan
+- Kazakhstan
+- Kenya
+- Kiribati
+- Kosovo
+- Kuwait
+- Kyrgyzstan
+- Laos
+- Latvia
+- Lesotho
+- Liberia
+- Libya
+- Liechtenstein
+- Lithuania
+- Luxembourg
+- Madagascar
+- Malawi
+- Malaysia
+- Maldives
+- Malta
+- Marshall Islands
+- Martinique
+- Mauritania
+- Mauritius
+- Mayotte
+- Mexico
+- Micronesia
+- Moldova
+- Monaco
+- Mongolia
+- Montenegro
+- Montserrat
+- Morocco
+- Namibia
+- Nauru
+- Nepal
+- Netherlands
+- New Caledonia
+- New Zealand
+- Nicaragua
+- Niue
+- Norfolk Island
+- North Korea
+- North Macedonia
+- Northern Mariana Islands
+- Norway
+- Oman
+- Pakistan
+- Palau
+- Panama
+- Papua New Guinea
+- Paraguay
+- Peru
+- Philippines
+- Pitcairn
+- Poland
+- Portugal
+- Puerto Rico
+- Qatar
+- Republic of Congo
+- Reunion
+- Romania
+- Russia
+- Rwanda
+- Saint Helena, Ascension and Tristan da Cunha
+- Saint Kitts and Nevis
+- Saint Lucia
+- Saint Pierre and Miquelon
+- Saint Vincent and the Grenadines
+- Saint-Barthelemy
+- Saint-Martin
+- Samoa
+- San Marino
+- Sao Tome and Principe
+- Saudi Arabia
+- Senegal
+- Serbia
+- Seychelles
+- Sierra Leone
+- Singapore
+- Sint Maarten
+- Slovakia
+- Slovenia
+- Solomon Islands
+- South Africa
+- South Georgia and the South Sandwich Islands
+- South Korea
+- Spain
+- Sri Lanka
+- Suriname
+- Sweden
+- Switzerland
+- Taiwan
+- Tajikistan
+- Tanzania
+- Thailand
+- Togo
+- Tokelau
+- Tonga
+- Trinidad and Tobago
+- Tunisia
+- Turkey
+- Turkmenistan
+- Turks and Caicos Islands
+- Tuvalu
+- Uganda
+- United Arab Emirates
+- United Kingdom
+- United States
+- United States Minor Outlying Islands
+- Uruguay
+- Uzbekistan
+- Vanuatu
+- Vatican City
+- Vietnam
+- Virgin Islands, U.S.
+- Wallis and Futuna
+- Zambia
+- Zimbabwe
+- eSwatini

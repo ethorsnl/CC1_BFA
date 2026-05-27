@@ -485,6 +485,17 @@ path.leaflet-interactive:focus { outline: none !important; }
         </div>
       </div>
 
+      <!-- Discovery Feed -->
+      <div class="panel" id="discoveryPanel" style="display:none; border-top: 1px solid var(--border); background: rgba(0,188,212,0.03);">
+        <div class="panel-label" style="color:#00838f; display:flex; justify-content:space-between; align-items:center;">
+          <span>Field Discoveries</span>
+          <span id="discoveryCount" style="font-size:10px; background:#00bcd4; color:white; padding:2px 6px; border-radius:10px;">0</span>
+        </div>
+        <div id="discoveryFeed" style="max-height: 200px; overflow-y: auto; display:flex; flex-direction:column; gap:8px; margin-top:8px; padding-right:4px;">
+          <!-- Items populated by JS -->
+        </div>
+      </div>
+
       <!-- Detail -->
       <div class="detail-panel" id="detailPanel">
         <div class="panel-label">School detail</div>
@@ -565,10 +576,8 @@ function updateNavLinks() {
   }
   document.getElementById("backLink").href = backUrl;
 
+  // ALWAYS point to national summary as requested
   let summaryUrl = `at_risk_summary.html?year=${currentYear}&iso3=${ISO3}`;
-  if (currentProvince) {
-    summaryUrl += `&province=${encodeURIComponent(currentProvince)}`;
-  }
   const sLink = document.getElementById("summaryLink");
   if (sLink) sLink.href = summaryUrl;
 }
@@ -599,6 +608,8 @@ async function init() {
     schoolsData = schoolsRes;
     provinceStats = provStatsRes;
     riskTrajectory = riskTrajRes;
+
+    updateDiscoveryFeed(schoolsData);
     
     // Initial chart
     updateRiskChart("National");
@@ -1026,7 +1037,13 @@ function renderSchools(geo) {
       
       let color = "#D2B4DE", radius = 3, isAtRisk = false, tier = "Stable", trauma = 0;
       
-      if (schoolScore) {
+      const isDiscovery = f.properties.is_discovery === true;
+
+      if (isDiscovery) {
+        color = "#00bcd4"; // Cyan/Blue for discovery
+        radius = 7;
+        tier = "New Discovery";
+      } else if (schoolScore) {
         trauma = schoolScore.trauma || 0;
         isAtRisk = (schoolScore.at_risk_years || []).includes(currentYear);
         if (isAtRisk) {
@@ -1055,13 +1072,21 @@ function renderSchools(geo) {
         fillOpacity: 0.9 
       });
       
-      const prefix = currentZoom < 8 ? "PROVINCE HOTSPOT: " : "";
+      const prefix = isDiscovery ? "NEW DISCOVERY: " : (currentZoom < 8 ? "PROVINCE HOTSPOT: " : "");
+      const fieldNoteHTML = f.properties.field_note ? `
+        <div style="margin-top:5px; padding-top:5px; border-top:1px dashed #6B6259;">
+          <span style="color:#2e7d32; font-weight:bold; font-size:9px;">FIELD NOTE:</span>
+          <span style="font-style:italic; color:#2e7d32;">"${f.properties.field_note}"</span>
+        </div>
+      ` : '';
+
       const tooltipContent = `
         <div style="font-family:IBM Plex Sans, sans-serif; font-size:11px; line-height:1.4;">
           <strong>${prefix}${f.properties.name || 'Unnamed Institution'}</strong><br/>
           <div style="font-size:9px; color:#6B6259; font-family:IBM Plex Mono;">${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}</div>
           <span style="color:${color}; font-weight:bold; font-size:10px; text-transform:uppercase;">${tier}</span>
           ${trauma > 0 ? `<br/><span style="color:#6B6259;">Conflict History: ${trauma} Years</span>` : ''}
+          ${fieldNoteHTML}
         </div>
       `;
       marker.bindTooltip(tooltipContent, { sticky: true });
@@ -1084,22 +1109,43 @@ function showSchoolDetail(props, latlng) {
     const sLon = s.lon || s.longitude;
     return Math.abs(sLat - latlng.lat) < 0.0001 && Math.abs(sLon - latlng.lng) < 0.0001;
   });
-  if (!score) return;
+
+  const isDiscovery = props.is_discovery === true;
+  if (!score && !isDiscovery) return;
 
   const latKey = latlng.lat.toFixed(4);
   const lonKey = latlng.lng.toFixed(4);
   const detailed = vulnMap[`${latKey},${lonKey}`] || { conflict: 0, fragility: 0 };
 
-  const name = props.name || "Unnamed Institution", v_score = (score.v_score * 100).toFixed(0), trauma = score.trauma, province = score.province || "Unknown", years = score.at_risk_years || [], risk_summary = years.length > 0 ? `at risk ${years.length} times since ${years[0]}` : "not currently at risk";
+  const name = props.name || "Unnamed Institution";
+  const v_score = score ? (score.v_score * 100).toFixed(0) : "N/A";
+  const trauma = score ? score.trauma : 0;
+  const province = score ? (score.province || "Unknown") : "Discovered Location";
+  const years = score ? (score.at_risk_years || []) : [];
+  const risk_summary = isDiscovery ? "New discovery, risk analysis pending" : (years.length > 0 ? `at risk ${years.length} times since ${years[0]}` : "not currently at risk");
   
   document.getElementById("detailPanel").innerHTML = `
-    <div class="panel-label">School detail</div>
+    <div class="panel-label">School detail ${isDiscovery ? '<span style="color:#00bcd4; margin-left:5px;">● NEW</span>' : ''}</div>
     <div class="detail-name">${name}</div>
-    <div class="panel-label" style="margin-top:4px;">${province} Province</div>
+    <div class="panel-label" style="margin-top:4px;">${province}</div>
     <div class="detail-metrics">
       <div class="metric"><div class="metric-val">${v_score}%</div><div class="metric-label">Memory Risk</div></div>
       <div class="metric"><div class="metric-val">${trauma} Years</div><div class="metric-label">Conflict History</div></div>
     </div>
+    
+    ${props.field_note ? `
+      <div style="margin-top:16px; padding:12px; background:rgba(46,125,50,0.05); border-left:4px solid #2e7d32; font-family:IBM Plex Sans;">
+        <div style="font-family:IBM Plex Mono; font-size:9px; color:#2e7d32; font-weight:bold; margin-bottom:4px; display:flex; justify-content:space-between;">
+          <span>FIELD OBSERVATION</span>
+          <span>${props.field_date}</span>
+        </div>
+        <div style="font-size:12px; color:#1A1410; line-height:1.5; font-style:italic; margin-bottom:8px;">"${props.field_note}"</div>
+        <div style="font-size:10px; color:#6B6259; display:flex; justify-content:space-between;">
+          <span>Status: <b>${props.field_status}</b></span>
+          <span>By: ${props.field_observer}</span>
+        </div>
+      </div>
+    ` : ''}
     
     <div class="panel-label" style="margin-top:10px; margin-bottom:6px">Site Level Metrics</div>
     <div class="detail-metrics" style="grid-template-columns: 1fr 1fr; gap: 8px;">
@@ -1112,8 +1158,56 @@ function showSchoolDetail(props, latlng) {
         <div class="metric-label">Fragility</div>
       </div>
     </div>
+    `;
+    }
 
-    <div class="ai-box">
+    function updateDiscoveryFeed(geo) {
+    const discoveries = geo.features.filter(f => f.properties.is_discovery === true);
+    const panel = document.getElementById("discoveryPanel");
+    const feed  = document.getElementById("discoveryFeed");
+    const count = document.getElementById("discoveryCount");
+
+    if (discoveries.length === 0) {
+    panel.style.display = "none";
+    return;
+    }
+
+    panel.style.display = "block";
+    count.textContent = discoveries.length;
+    feed.innerHTML = "";
+
+    discoveries.forEach(f => {
+    const p = f.properties;
+    const coords = f.geometry.coordinates;
+    const item = document.createElement("div");
+    item.className = "discovery-item";
+    item.style = `
+      padding: 8px; 
+      background: white; 
+      border: 1px solid #e0f7fa; 
+      border-radius: 4px; 
+      cursor: pointer;
+      transition: all 0.2s;
+    `;
+    item.innerHTML = `
+      <div style="font-family:IBM Plex Mono; font-size:8px; color:#00bcd4; font-weight:bold; display:flex; justify-content:space-between;">
+        <span>${p.verification_status.toUpperCase()}</span>
+        <span>${p.field_date}</span>
+      </div>
+      <div style="font-size:11px; font-weight:bold; color:var(--ink); margin:2px 0;">${p.name}</div>
+      <div style="font-size:9px; color:var(--ink-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">"${p.field_note}"</div>
+    `;
+
+    item.onmouseover = () => item.style.borderColor = "#00bcd4";
+    item.onmouseout  = () => item.style.borderColor = "#e0f7fa";
+    item.onclick = () => {
+      map.flyTo([coords[1], coords[0]], 14);
+      showSchoolDetail(p, { lat: coords[1], lng: coords[0] });
+    };
+    feed.appendChild(item);
+    });
+    }
+
       <div class="ai-label">Risk Profile</div>
       <div class="ai-text">This facility is in <strong>${province}</strong>. Memory risk: <strong>${v_score}%</strong>. Fresh conflict pressure: <strong>${(detailed.conflict * 100).toFixed(0)}%</strong>.</div>
     </div>

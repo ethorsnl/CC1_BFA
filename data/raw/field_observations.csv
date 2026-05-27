@@ -1,0 +1,7 @@
+school_name,latitude,longitude,observation_date,status,note,observer
+École Nazemsé,12.3234,-1.5226,2026-05-20,Closed,School closed due to nearby military activity. Staff evacuated.,J. Doe (Field Coordinator)
+College de Tounouma,11.1798,-4.2835,2026-05-22,Open,Operating at 50% capacity. Many displaced students joining.,S. Smith
+Gueswende Bala A et B,12.3192,-1.5222,2026-05-25,Damaged,Roof damaged by recent storm. Classes held under trees.,K. Traore
+ENAM,12.3788,-1.506,2026-05-26,Open,Normal operations. Local community providing security watch.,K. Traore
+Unnamed School,11.1865,-4.3111,2026-05-27,Open,This school has no official name in OSM but was visited today. Facilities are basic but functional.,A. Konate
+New Frontier School,12.5,0.0,2026-05-27,Open,DISCOVERY: Found a previously unmapped school in the remote Eastern region.,M. Kouassi
