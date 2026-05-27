@@ -29,8 +29,8 @@
 <table id="schoolTable" style="display:none;">
   <thead><tr>
     <th>#</th>
-    <th>Province</th>
     <th>Name</th>
+    <th>Province</th>
     <th>Latitude</th>
     <th>Longitude</th>
   </tr></thead>
@@ -137,8 +137,8 @@ async function load() {
 
         const row = `<tr>
             <td>${index + 1}</td>
-            <td style="color:var(--ink-muted); font-size:12px;">${s.province || 'Unknown'}</td>
             <td style="font-weight:500;">${displayName}</td>
+            <td style="color:var(--ink-muted); font-size:12px;">${s.province || 'Unknown'}</td>
             <td style="font-family:monospace; color:var(--ink-muted);">${s.lat.toFixed(4)}</td>
             <td style="font-family:monospace; color:var(--ink-muted);">${s.lon.toFixed(4)}</td>
         </tr>`;
