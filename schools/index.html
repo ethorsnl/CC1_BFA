@@ -1104,115 +1104,128 @@ function renderSchools(geo) {
 }
 
 function showSchoolDetail(props, latlng) {
-  const score = scoreData.find(s => {
-    const sLat = s.lat || s.latitude;
-    const sLon = s.lon || s.longitude;
-    return Math.abs(sLat - latlng.lat) < 0.0001 && Math.abs(sLon - latlng.lng) < 0.0001;
-  });
+  try {
+    const score = scoreData.find(s => {
+      const sLat = s.lat || s.latitude;
+      const sLon = s.lon || s.longitude;
+      return Math.abs(sLat - latlng.lat) < 0.0001 && Math.abs(sLon - latlng.lng) < 0.0001;
+    });
 
-  const isDiscovery = props.is_discovery === true;
-  if (!score && !isDiscovery) return;
+    const isDiscovery = props.is_discovery === true;
+    if (!score && !isDiscovery) return;
 
-  const latKey = latlng.lat.toFixed(4);
-  const lonKey = latlng.lng.toFixed(4);
-  const detailed = vulnMap[`${latKey},${lonKey}`] || { conflict: 0, fragility: 0 };
+    const latKey = latlng.lat.toFixed(4);
+    const lonKey = latlng.lng.toFixed(4);
+    const detailed = vulnMap[`${latKey},${lonKey}`] || { conflict: 0, fragility: 0 };
 
-  const name = props.name || "Unnamed Institution";
-  const v_score = score ? (score.v_score * 100).toFixed(0) : "N/A";
-  const trauma = score ? score.trauma : 0;
-  const province = score ? (score.province || "Unknown") : "Discovered Location";
-  const years = score ? (score.at_risk_years || []) : [];
-  const risk_summary = isDiscovery ? "New discovery, risk analysis pending" : (years.length > 0 ? `at risk ${years.length} times since ${years[0]}` : "not currently at risk");
-  
-  const status = props.field_status || "Unknown";
-  const statusColor = status === "Open" ? "#2e7d32" : (status === "Closed" ? "#d32f2f" : "#f57c00");
+    const name = props.name || "Unnamed Institution";
+    const v_score = score ? (score.v_score * 100).toFixed(0) : "N/A";
+    const trauma = score ? score.trauma : 0;
+    const province = score ? (score.province || "Unknown") : "Discovered Location";
+    const years = score ? (score.at_risk_years || []) : [];
 
-  document.getElementById("detailPanel").innerHTML = `
-    <div class="panel-label" style="display:flex; justify-content:space-between; align-items:center;">
-       <span>School detail ${isDiscovery ? '<span style="color:#00bcd4; margin-left:5px;">● NEW</span>' : ''}</span>
-       <span style="font-size:9px; background:${statusColor}; color:white; padding:2px 6px; border-radius:4px;">${status.toUpperCase()}</span>
-    </div>
-    <div class="detail-name">${name}</div>
-    <div class="panel-label" style="margin-top:4px;">${province}</div>
-    <div class="detail-metrics">
-      <div class="metric"><div class="metric-val">${v_score}%</div><div class="metric-label">Memory Risk</div></div>
-      <div class="metric"><div class="metric-val">${trauma} Years</div><div class="metric-label">Conflict History</div></div>
-    </div>
-    
-    ${props.field_note ? `
-      <div style="margin-top:16px; padding:12px; background:rgba(46,125,50,0.05); border-left:4px solid #2e7d32; font-family:IBM Plex Sans;">
-        <div style="font-family:IBM Plex Mono; font-size:9px; color:#2e7d32; font-weight:bold; margin-bottom:4px; display:flex; justify-content:space-between;">
-          <span>FIELD OBSERVATION</span>
-          <span>${props.field_date}</span>
+    const status = String(props.field_status || "Unknown");
+    const statusColor = status === "Open" ? "#2e7d32" : (status === "Closed" ? "#d32f2f" : "#f57c00");
+
+    document.getElementById("detailPanel").innerHTML = `
+      <div class="panel-label" style="display:flex; justify-content:space-between; align-items:center;">
+         <span>School detail ${isDiscovery ? '<span style="color:#00bcd4; margin-left:5px;">● NEW</span>' : ''}</span>
+         <span style="font-size:9px; background:${statusColor}; color:white; padding:2px 6px; border-radius:4px;">${status.toUpperCase()}</span>
+      </div>
+      <div class="detail-name">${name}</div>
+      <div class="panel-label" style="margin-top:4px;">${province}</div>
+      <div class="detail-metrics">
+        <div class="metric"><div class="metric-val">${v_score}%</div><div class="metric-label">Memory Risk</div></div>
+        <div class="metric"><div class="metric-val">${trauma} Years</div><div class="metric-label">Conflict History</div></div>
+      </div>
+
+      ${props.field_note ? `
+        <div style="margin-top:16px; padding:12px; background:rgba(46,125,50,0.05); border-left:4px solid #2e7d32; font-family:IBM Plex Sans;">
+          <div style="font-family:IBM Plex Mono; font-size:9px; color:#2e7d32; font-weight:bold; margin-bottom:4px; display:flex; justify-content:space-between;">
+            <span>FIELD OBSERVATION</span>
+            <span>${props.field_date || 'N/A'}</span>
+          </div>
+          <div style="font-size:12px; color:#1A1410; line-height:1.5; font-style:italic; margin-bottom:8px;">"${props.field_note}"</div>
+          <div style="font-size:10px; color:#6B6259; display:flex; justify-content:space-between;">
+            <span>Status: <b>${status}</b></span>
+            <span>By: ${props.field_observer || 'Anonymous'}</span>
+          </div>
         </div>
-        <div style="font-size:12px; color:#1A1410; line-height:1.5; font-style:italic; margin-bottom:8px;">"${props.field_note}"</div>
-        <div style="font-size:10px; color:#6B6259; display:flex; justify-content:space-between;">
-          <span>Status: <b>${props.field_status}</b></span>
-          <span>By: ${props.field_observer}</span>
+      ` : ''}
+
+      <div class="panel-label" style="margin-top:10px; margin-bottom:6px">Site Level Metrics</div>
+      <div class="detail-metrics" style="grid-template-columns: 1fr 1fr; gap: 8px;">
+        <div class="metric" style="padding: 8px;">
+          <div class="metric-val" style="font-size: 16px;">${detailed.conflict.toFixed(2)}</div>
+          <div class="metric-label">Conflict</div>
+        </div>
+        <div class="metric" style="padding: 8px;">
+          <div class="metric-val" style="font-size: 16px;">${detailed.fragility.toFixed(2)}</div>
+          <div class="metric-label">Fragility</div>
         </div>
       </div>
-    ` : ''}
-    
-    <div class="panel-label" style="margin-top:10px; margin-bottom:6px">Site Level Metrics</div>
-    <div class="detail-metrics" style="grid-template-columns: 1fr 1fr; gap: 8px;">
-      <div class="metric" style="padding: 8px;">
-        <div class="metric-val" style="font-size: 16px;">${detailed.conflict.toFixed(2)}</div>
-        <div class="metric-label">Conflict</div>
-      </div>
-      <div class="metric" style="padding: 8px;">
-        <div class="metric-val" style="font-size: 16px;">${detailed.fragility.toFixed(2)}</div>
-        <div class="metric-label">Fragility</div>
-      </div>
-    </div>
-  `;
+    `;
+  } catch (err) {
+    console.error("Error in showSchoolDetail:", err, props);
+  }
 }
 
 function updateDiscoveryFeed(geo) {
-  const discoveries = geo.features.filter(f => f.properties.is_discovery === true);
-  const panel = document.getElementById("discoveryPanel");
-  const feed  = document.getElementById("discoveryFeed");
-  const count = document.getElementById("discoveryCount");
+  try {
+    if (!geo || !geo.features) return;
+    const discoveries = geo.features.filter(f => f.properties && f.properties.is_discovery === true);
+    const panel = document.getElementById("discoveryPanel");
+    const feed  = document.getElementById("discoveryFeed");
+    const count = document.getElementById("discoveryCount");
 
-  if (discoveries.length === 0) {
-    panel.style.display = "none";
-    return;
+    if (!panel || !feed) return;
+
+    if (discoveries.length === 0) {
+      panel.style.display = "none";
+      return;
+    }
+
+    panel.style.display = "block";
+    count.textContent = discoveries.length;
+    feed.innerHTML = "";
+
+    discoveries.forEach(f => {
+      const p = f.properties || {};
+      const coords = f.geometry ? f.geometry.coordinates : [0,0];
+      const statusStr = String(p.verification_status || "PENDING");
+
+      const item = document.createElement("div");
+      item.className = "discovery-item";
+      item.style = `
+        padding: 8px; 
+        background: white; 
+        border: 1px solid #e0f7fa; 
+        border-radius: 4px; 
+        cursor: pointer;
+        transition: all 0.2s;
+      `;
+      item.innerHTML = `
+        <div style="font-family:IBM Plex Mono; font-size:8px; color:#00bcd4; font-weight:bold; display:flex; justify-content:space-between;">
+          <span>${statusStr.toUpperCase()}</span>
+          <span>${p.field_date || "N/A"}</span>
+        </div>
+        <div style="font-size:11px; font-weight:bold; color:var(--ink); margin:2px 0;">${p.name || "Unnamed"}</div>
+        <div style="font-size:9px; color:var(--ink-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">"${p.field_note || ''}"</div>
+      `;
+
+      item.onmouseover = () => item.style.borderColor = "#00bcd4";
+      item.onmouseout  = () => item.style.borderColor = "#e0f7fa";
+      item.onclick = () => {
+        map.flyTo([coords[1], coords[0]], 14);
+        showSchoolDetail(p, { lat: coords[1], lng: coords[0] });
+      };
+      feed.appendChild(item);
+    });
+  } catch (err) {
+    console.error("Error in updateDiscoveryFeed:", err);
   }
-
-  panel.style.display = "block";
-  count.textContent = discoveries.length;
-  feed.innerHTML = "";
-
-  discoveries.forEach(f => {
-    const p = f.properties;
-    const coords = f.geometry.coordinates;
-    const item = document.createElement("div");
-    item.className = "discovery-item";
-    item.style = `
-      padding: 8px; 
-      background: white; 
-      border: 1px solid #e0f7fa; 
-      border-radius: 4px; 
-      cursor: pointer;
-      transition: all 0.2s;
-    `;
-    item.innerHTML = `
-      <div style="font-family:IBM Plex Mono; font-size:8px; color:#00bcd4; font-weight:bold; display:flex; justify-content:space-between;">
-        <span>${(p.verification_status || "PENDING").toUpperCase()}</span>
-        <span>${p.field_date || "N/A"}</span>
-      </div>
-      <div style="font-size:11px; font-weight:bold; color:var(--ink); margin:2px 0;">${p.name}</div>
-      <div style="font-size:9px; color:var(--ink-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">"${p.field_note}"</div>
-    `;
-
-    item.onmouseover = () => item.style.borderColor = "#00bcd4";
-    item.onmouseout  = () => item.style.borderColor = "#e0f7fa";
-    item.onclick = () => {
-      map.flyTo([coords[1], coords[0]], 14);
-      showSchoolDetail(p, { lat: coords[1], lng: coords[0] });
-    };
-    feed.appendChild(item);
-  });
 }
+
 
 init();
 </script>
