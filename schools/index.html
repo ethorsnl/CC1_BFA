@@ -491,7 +491,7 @@ path.leaflet-interactive:focus { outline: none !important; }
           <span>Field Discoveries</span>
           <span id="discoveryCount" style="font-size:10px; background:#00bcd4; color:white; padding:2px 6px; border-radius:10px;">0</span>
         </div>
-        <div id="discoveryFeed" style="max-height: 200px; overflow-y: auto; display:flex; flex-direction:column; gap:8px; margin-top:8px; padding-right:4px;">
+        <div id="discoveryFeed" style="max-height: 140px; overflow-y: auto; display:flex; flex-direction:column; gap:6px; margin-top:6px; padding-right:4px;">
           <!-- Items populated by JS -->
         </div>
       </div>
@@ -1139,20 +1139,6 @@ function showSchoolDetail(props, latlng) {
         <div class="metric"><div class="metric-val">${trauma} Years</div><div class="metric-label">Conflict History</div></div>
       </div>
 
-      ${props.field_note ? `
-        <div style="margin-top:16px; padding:12px; background:rgba(46,125,50,0.05); border-left:4px solid #2e7d32; font-family:IBM Plex Sans;">
-          <div style="font-family:IBM Plex Mono; font-size:9px; color:#2e7d32; font-weight:bold; margin-bottom:4px; display:flex; justify-content:space-between;">
-            <span>FIELD OBSERVATION</span>
-            <span>${props.field_date || 'N/A'}</span>
-          </div>
-          <div style="font-size:12px; color:#1A1410; line-height:1.5; font-style:italic; margin-bottom:8px;">"${props.field_note}"</div>
-          <div style="font-size:10px; color:#6B6259; display:flex; justify-content:space-between;">
-            <span>Status: <b>${status}</b></span>
-            <span>By: ${props.field_observer || 'Anonymous'}</span>
-          </div>
-        </div>
-      ` : ''}
-
       <div class="panel-label" style="margin-top:10px; margin-bottom:6px">Site Level Metrics</div>
       <div class="detail-metrics" style="grid-template-columns: 1fr 1fr; gap: 8px;">
         <div class="metric" style="padding: 8px;">
@@ -1164,7 +1150,22 @@ function showSchoolDetail(props, latlng) {
           <div class="metric-label">Fragility</div>
         </div>
       </div>
+
+      ${props.field_note ? `
+        <div style="margin-top:16px; padding:12px; background:rgba(46,125,50,0.05); border-left:4px solid #2e7d32; font-family:IBM Plex Sans; text-align:left;">
+          <div style="font-family:IBM Plex Mono; font-size:9px; color:#2e7d32; font-weight:bold; margin-bottom:4px; display:flex; justify-content:space-between;">
+            <span>FIELD OBSERVATION</span>
+            <span>${props.field_date || 'N/A'}</span>
+          </div>
+          <div style="font-size:12px; color:#1A1410; line-height:1.5; font-style:italic; margin-bottom:8px;">"${props.field_note}"</div>
+          <div style="font-size:10px; color:#6B6259; display:flex; justify-content:space-between;">
+            <span>Status: <b>${status}</b></span>
+            <span>By: ${props.field_observer || 'Anonymous'}</span>
+          </div>
+        </div>
+      ` : ''}
     `;
+
   } catch (err) {
     console.error("Error in showSchoolDetail:", err, props);
   }
@@ -1197,7 +1198,7 @@ function updateDiscoveryFeed(geo) {
       const item = document.createElement("div");
       item.className = "discovery-item";
       item.style = `
-        padding: 8px; 
+        padding: 6px; 
         background: white; 
         border: 1px solid #e0f7fa; 
         border-radius: 4px; 
@@ -1216,7 +1217,7 @@ function updateDiscoveryFeed(geo) {
       item.onmouseover = () => item.style.borderColor = "#00bcd4";
       item.onmouseout  = () => item.style.borderColor = "#e0f7fa";
       item.onclick = () => {
-        map.flyTo([coords[1], coords[0]], 14);
+        map.flyTo([coords[1], coords[0]], 12);
         showSchoolDetail(p, { lat: coords[1], lng: coords[0] });
       };
       feed.appendChild(item);
