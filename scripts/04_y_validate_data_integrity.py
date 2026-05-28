@@ -81,7 +81,7 @@ def validate():
         print("  ✓ Admin mapping: Found")
 
     # 5. Check Schools
-    school_path = Path(f"data/clean/schools/final_cleaned_schools_{ISO3}.csv")
+    school_path = Path(f"data/clean/schools/schools_{ISO3}.csv")
     if not school_path.exists():
         warnings.append(f"WARNING: No cleaned school data found for {ISO3}.")
     else:

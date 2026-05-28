@@ -74,6 +74,7 @@ STEPS = {
     22: ("06_export_map_data.py",              "Export Map Layers"),
     23: ("06_x_export_conflicts_geojson.py",    "Export Conflict GeoJSON"),
     24: ("07_update_dashboard.py",             "Update Dashboard UI (HTML)"),
+    25: ("08_merge_field_notes.py",            "Merge Field Observations"),
 }
 
 
@@ -104,6 +105,9 @@ def run_step(script: str, iso3: str, country: str) -> bool:
         args.extend(["--iso3", iso3])
     elif script == "04_1_fetch_worldpop.py":
         args.extend(["--iso3", iso3])
+    elif script == "08_merge_field_notes.py":
+        # No extra args needed
+        pass
 
 
     result = subprocess.run(args, env=env)

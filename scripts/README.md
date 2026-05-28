@@ -102,6 +102,7 @@ python scripts/04_1_fetch_worldpop.py --iso3 BFA --years all --clean
 | 22 | `06_export_map_data.py` | `artifacts/data.geojson` | Choropleth layers + Insights |
 | 23 | `06_x_export_conflicts_geojson.py` | `artifacts/conflicts.geojson` | Combined ACLED + UCDP layer |
 | 24 | `07_update_dashboard.py` | `index.html` | **UI Sync**: Updates country names/paths |
+| 25 | `08_merge_field_notes.py` | `artifacts/schools.geojson` | **Ground Truth**: Merges qualitative field observations |
 
 ---
 

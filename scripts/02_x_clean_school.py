@@ -7,7 +7,7 @@ ISO3 = os.environ.get("PIPELINE_ISO3", "BFA")
 def clean_schools():
     print(f"🚀 Cleaning school data for {ISO3}...")
     src = Path("data/raw/schools/all_schools_combined.csv")
-    dst = Path("data/clean/schools") / f"final_cleaned_schools_{ISO3}.csv"
+    dst = Path("data/clean/schools") / f"schools_{ISO3}.csv"
     
     if not src.exists():
         print(f"  ✗ Source file not found: {src}")

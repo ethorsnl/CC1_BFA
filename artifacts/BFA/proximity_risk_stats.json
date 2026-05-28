@@ -1,6 +1,11 @@
 {
   "iso3": "BFA",
-  "avg_distance_to_conflict_km": 15.4,
-  "schools_within_5km": 120,
-  "last_updated": "2026-05-27T10:42:00.960864"
+  "total_schools": 5785,
+  "recent_conflict_events": 906,
+  "avg_distance_to_conflict_km": 28.51,
+  "median_distance_to_conflict_km": 19.31,
+  "schools_within_5km": 2370,
+  "schools_within_5km_pct": 41.0,
+  "schools_within_10km": 3634,
+  "last_updated": "2026-05-28T01:00:30.361015"
 }

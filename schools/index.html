@@ -265,8 +265,8 @@ html, body { height: 100%; background: var(--bg); color: var(--ink); font-family
 
 .detail-metrics {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
   margin-bottom: 16px;
 }
 
@@ -459,33 +459,23 @@ path.leaflet-interactive:focus { outline: none !important; }
     <!-- Sidebar -->
     <aside class="sidebar">
 
-      <!-- Year slider -->
-      <div class="panel">
-        <div class="panel-label">
-          <span>Year</span>
-          <span class="year-display" id="yearDisplay">2024</span>
-        </div>
-        <input type="range" id="yearSlider" min="2015" max="2026" value="2024" step="1"/>
-
-        <!-- Legend -->
-        <div class="panel-label" style="margin-top:14px;margin-bottom:6px">Risk level</div>
-        <div class="legend-grid">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-critical)"></div>Critical</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-high)"></div>High Risk</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-medium)"></div>Moderate</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-low); opacity: 0.5; border: 1px solid var(--ink-muted);"></div>Stable (Prov)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#D2B4DE"></div>Stable (Sch)</div>
-        </div>
-
-        <!-- Layer Toggles -->
-        <div style="display:flex; flex-direction:column; gap:8px; margin-top:16px;">
-           <label style="display:flex; align-items:center; gap:8px; font-size:11px; color:var(--ink-muted); cursor:pointer;">
-             <input type="checkbox" id="toggleSchools"> <span>School Locations</span>
-           </label>
+      <!-- Chart Panel (Top) -->
+      <div class="panel" style="border-bottom: 1px solid var(--border); background: var(--surface2); flex-shrink: 0;">
+        <div class="panel-label" id="chartTitle">National At-Risk Schools Trend</div>
+        <div style="height: 100px; position: relative;">
+          <canvas id="riskChart"></canvas>
         </div>
       </div>
 
-      <!-- Discovery Feed -->
+      <!-- Detail -->
+      <div class="detail-panel" id="detailPanel" style="padding-bottom: 8px; flex: 1; overflow-y: auto;">
+        <div class="panel-label">School detail</div>
+        <p class="detail-empty">
+          Zoom in and select a school point to see specific site-level risk metrics.
+        </p>
+      </div>
+
+      <!-- Discovery Feed (Optional) -->
       <div class="panel" id="discoveryPanel" style="display:none; border-top: 1px solid var(--border); background: rgba(0,188,212,0.03);">
         <div class="panel-label" style="color:#00838f; display:flex; justify-content:space-between; align-items:center;">
           <span>Field Discoveries</span>
@@ -496,22 +486,32 @@ path.leaflet-interactive:focus { outline: none !important; }
         </div>
       </div>
 
-      <!-- Detail -->
-      <div class="detail-panel" id="detailPanel">
-        <div class="panel-label">School detail</div>
-        <p class="detail-empty">
-          Zoom in and select a school point to see specific site-level risk metrics.
-        </p>
-      </div>
-
-      <!-- Chart Panel -->
-      <div class="panel" style="border-top: 1px solid var(--border); background: var(--surface2);">
-        <div class="panel-label" id="chartTitle">Crisis Trend</div>
-        <div style="height: 80px; position: relative;">
-          <canvas id="riskChart"></canvas>
+      <!-- Bottom controls (Toggles + Timeline + Legend) -->
+      <div class="bottom-controls" style="padding: 16px 20px; background: var(--surface); border-top: 1px solid var(--border); margin-top: auto;">
+        
+        <!-- Layer Toggles -->
+        <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+           <label style="display:flex; align-items:center; gap:8px; font-size:11px; color:var(--ink-muted); cursor:pointer;">
+             <input type="checkbox" id="toggleSchools"> <span>School Locations</span>
+           </label>
         </div>
-        <div class="legend-grid" style="margin-top: 10px; font-size: 9px; grid-template-columns: 1fr;">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-critical)"></div>Critical Risk Trend</div>
+
+        <!-- Year slider -->
+        <div class="panel-label" style="justify-content: space-between; margin-bottom: 4px;">
+          <span>Year</span>
+          <span class="year-display" id="yearDisplay">2024</span>
+        </div>
+        <input type="range" id="yearSlider" min="2015" max="2026" value="2024" step="1" style="margin-bottom: 16px;"/>
+
+        <!-- Legend -->
+        <div class="panel-label" style="margin-bottom:8px; justify-content: flex-start; color: var(--ink);">Risk level (Province & Schools)</div>
+        <div class="legend-grid">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-critical)"></div>Critical</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-high)"></div>High Risk</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-medium)"></div>Moderate</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--tier-low); opacity: 0.5; border: 1px solid var(--ink-muted);"></div>Stable (Prov)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#D2B4DE"></div>Stable (Sch)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#00bcd4; border-radius: 50%;"></div>Discovery</div>
         </div>
       </div>
 
@@ -569,6 +569,22 @@ let riskChart       = null;
 let currentYear     = 2024;
 let currentProvince = null;
 
+function parseCSVLine(text) {
+    const result = [];
+    let cur = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === '"') inQuotes = !inQuotes;
+        else if (char === ',' && !inQuotes) {
+            result.push(cur.trim());
+            cur = '';
+        } else cur += char;
+    }
+    result.push(cur.trim());
+    return result;
+}
+
 function updateNavLinks() {
   let backUrl = `../index.html?year=${currentYear}&iso3=${ISO3}`;
   if (currentProvince) {
@@ -617,14 +633,14 @@ async function init() {
     // Parse Site Level Metrics
     const rows = vulnCsvRes.split('\n').slice(1);
     rows.forEach(row => {
-      const cols = row.split(',');
-      if (cols.length >= 7) {
+      const cols = parseCSVLine(row);
+      if (cols.length >= 8) {
         const lat = parseFloat(cols[2]).toFixed(4);
         const lon = parseFloat(cols[3]).toFixed(4);
         vulnMap[`${lat},${lon}`] = {
-          conflict: parseFloat(cols[4]) || 0,
-          fragility: parseFloat(cols[5]) || 0,
-          final: parseFloat(cols[6]) || 0
+          conflict: parseFloat(cols[5]) || 0,
+          fragility: parseFloat(cols[6]) || 0,
+          final: parseFloat(cols[7]) || 0
         };
       }
     });
@@ -703,16 +719,16 @@ async function init() {
                 </div>
                 <div class="metric">
                   <div class="metric-val">${schoolsPer1k.toFixed(1)}</div>
-                  <div class="metric-label">Schools / 1k children</div>
+                  <div class="metric-label">Schools / 1k</div>
                 </div>
                 ${provData.count > 0 ? `
-                <a href="at_risk_summary.html?year=${currentYear}&province=${encodeURIComponent(f.properties.admin2)}&iso3=${ISO3}" class="metric" style="text-decoration:none; cursor:pointer;">
-                  <div class="metric-val">${provData.count}</div>
-                  <div class="metric-label" style="text-decoration:underline;">At-Risk Schools</div>
+                <a href="at_risk_summary.html?year=${currentYear}&province=${encodeURIComponent(f.properties.admin2)}&iso3=${ISO3}" class="metric" style="text-decoration:none; cursor:pointer; background: rgba(139,26,26,0.1); border: 1px solid rgba(139,26,26,0.2);">
+                  <div class="metric-val" style="color: var(--tier-critical); font-weight: bold;">${provData.count}</div>
+                  <div class="metric-label" style="text-decoration:underline;">At-Risk</div>
                 </a>` : `
                 <div class="metric">
                   <div class="metric-val">0</div>
-                  <div class="metric-label">At-Risk Schools</div>
+                  <div class="metric-label">At-Risk</div>
                 </div>`}
               </div>
             `;
@@ -765,16 +781,16 @@ async function init() {
             </div>
             <div class="metric">
               <div class="metric-val">${schoolsPer1k.toFixed(1)}</div>
-              <div class="metric-label">Schools / 1k children</div>
+              <div class="metric-label">Schools / 1k</div>
             </div>
             ${provData.count > 0 ? `
-            <a href="at_risk_summary.html?year=${currentYear}&province=${encodeURIComponent(currentProvince)}&iso3=${ISO3}" class="metric" style="text-decoration:none; cursor:pointer;">
-              <div class="metric-val">${provData.count}</div>
-              <div class="metric-label" style="text-decoration:underline;">At-Risk Schools</div>
+            <a href="at_risk_summary.html?year=${currentYear}&province=${encodeURIComponent(currentProvince)}&iso3=${ISO3}" class="metric" style="text-decoration:none; cursor:pointer; background: rgba(139,26,26,0.1); border: 1px solid rgba(139,26,26,0.2);">
+              <div class="metric-val" style="color: var(--tier-critical); font-weight: bold;">${provData.count}</div>
+              <div class="metric-label" style="text-decoration:underline;">At-Risk</div>
             </a>` : `
             <div class="metric">
               <div class="metric-val">0</div>
-              <div class="metric-label">At-Risk Schools</div>
+              <div class="metric-label">At-Risk</div>
             </div>`}
           </div>
         `;
@@ -820,16 +836,16 @@ async function init() {
                 </div>
                 <div class="metric">
                   <div class="metric-val">${schoolsPer1k.toFixed(1)}</div>
-                  <div class="metric-label">Schools / 1k children</div>
+                  <div class="metric-label">Schools / 1k</div>
                 </div>
                 ${provData.count > 0 ? `
-                <a href="at_risk_summary.html?year=${currentYear}&province=${encodeURIComponent(match.feature.properties.admin2)}&iso3=${ISO3}" class="metric" style="text-decoration:none; cursor:pointer;">
-                  <div class="metric-val">${provData.count}</div>
-                  <div class="metric-label" style="text-decoration:underline;">At-Risk Schools</div>
+                <a href="at_risk_summary.html?year=${currentYear}&province=${encodeURIComponent(match.feature.properties.admin2)}&iso3=${ISO3}" class="metric" style="text-decoration:none; cursor:pointer; background: rgba(139,26,26,0.1); border: 1px solid rgba(139,26,26,0.2);">
+                  <div class="metric-val" style="color: var(--tier-critical); font-weight: bold;">${provData.count}</div>
+                  <div class="metric-label" style="text-decoration:underline;">At-Risk</div>
                 </a>` : `
                 <div class="metric">
                   <div class="metric-val">0</div>
-                  <div class="metric-label">At-Risk Schools</div>
+                  <div class="metric-label">At-Risk</div>
                 </div>`}
               </div>
             `;
@@ -921,7 +937,7 @@ function updateRiskChart(provinceName) {
   
   const critical = years.map(y => data[y].critical);
 
-  document.getElementById("chartTitle").textContent = `${provinceName} Crisis Trend`;
+  document.getElementById("chartTitle").textContent = provinceName === "National" ? "National At-Risk Schools Trend" : `${provinceName} At-Risk Schools Trend`;
 
   if (riskChart) riskChart.destroy();
 
@@ -954,7 +970,7 @@ function updateRiskChart(provinceName) {
       labels: years,
       datasets: [
         {
-          label: 'Critical Risk',
+          label: 'Critical Risk Schools',
           data: critical,
           borderColor: TIER_COLORS.critical,
           backgroundColor: 'transparent',
@@ -1041,7 +1057,7 @@ function renderSchools(geo) {
 
       if (isDiscovery) {
         color = "#00bcd4"; // Cyan/Blue for discovery
-        radius = 7;
+        radius = currentZoom < 8 ? 1.5 : (currentZoom < 10 ? 3 : 5);
         tier = "New Discovery";
       } else if (schoolScore) {
         trauma = schoolScore.trauma || 0;
@@ -1136,7 +1152,11 @@ function showSchoolDetail(props, latlng) {
       <div class="panel-label" style="margin-top:4px;">${province}</div>
       <div class="detail-metrics">
         <div class="metric"><div class="metric-val">${v_score}%</div><div class="metric-label">Memory Risk</div></div>
-        <div class="metric"><div class="metric-val">${trauma} Years</div><div class="metric-label">Conflict History</div></div>
+        <div class="metric"><div class="metric-val">${trauma} Years</div><div class="metric-label">History</div></div>
+        <div class="metric" style="background: rgba(210,180,222,0.1); border: 1px solid rgba(210,180,222,0.2);">
+          <div class="metric-val">${detailed.final.toFixed(2)}</div>
+          <div class="metric-label">Site EVI</div>
+        </div>
       </div>
 
       <div class="panel-label" style="margin-top:10px; margin-bottom:6px">Site Level Metrics</div>

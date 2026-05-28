@@ -98,9 +98,9 @@ def main():
     # 3. At Risk Summary (schools/at_risk_summary.html)
     summary_patterns = [
         # HTML Title
-        (r"<title>.*Summary Report</title>", f"<title>At-Risk Schools Summary: {COUNTRY}</title>"),
+        (r"<title>At-Risk Schools Summary: .*</title>", f"<title>At-Risk Schools Summary: {COUNTRY}</title>"),
         # H1
-        (r"<h1>At-Risk Schools Summary.*</h1>", f"<h1>At-Risk Schools Summary: {COUNTRY}</h1>"),
+        (r"<h1>At-Risk Schools Summary: .*</h1>", f"<h1>At-Risk Schools Summary: <span id=\"yearVal\"></span></h1>"),
         # CSV Data Source
         (r"[A-Z]{3}_school_vulnerability\.csv", f"{ISO3}_school_vulnerability.csv"),
     ]
