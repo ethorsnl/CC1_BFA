@@ -611,19 +611,21 @@ async function init() {
   updateNavLinks();
 
   try {
-    const [geoRes, schoolsRes, scoreRes, provStatsRes, vulnCsvRes, riskTrajRes] = await Promise.all([
+    const [geoRes, schoolsRes, scoreRes, provStatsRes, vulnCsvRes, riskTrajRes, contextRes] = await Promise.all([
       fetch(GEOJSON_URL).then(r => r.json()),
       fetch(SCHOOLS_URL).then(r => r.json()),
       fetch(SCORE_URL).then(r => r.json()),
       fetch(PROV_STATS_URL).then(r => r.json()),
       fetch(VULN_CSV_URL).then(r => r.text()),
-      fetch(RISK_TRAJECTORY_URL).then(r => r.json())
+      fetch(RISK_TRAJECTORY_URL).then(r => r.json()),
+      fetch(CONTEXTUAL_STATS_URL).then(r => r.json()).catch(() => ({}))
     ]);
 
     scoreData = scoreRes;
     schoolsData = schoolsRes;
     provinceStats = provStatsRes;
     riskTrajectory = riskTrajRes;
+    contextualData = contextRes;
 
     updateDiscoveryFeed(schoolsData);
     
